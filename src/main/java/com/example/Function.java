@@ -3,6 +3,7 @@ package com.example;
 import java.util.*;
 import com.microsoft.azure.functions.annotation.*;
 import com.microsoft.azure.functions.*;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 
@@ -104,10 +105,10 @@ public class Function {
     @FunctionName("funcalercidade")
     public List<Cidade> ler(@HttpTrigger(name = "restlercidade", methods = {HttpMethod.GET}, route = "cidade")String aux){
         
-        return Stream.of.(
+        return Stream.of(
                 
-                new Cidade(1, "Cornélio Procópio", new Estado(1,"PR")),
-                new Cidade(2, "São Paulo", new Estado(2,"SP")),
+                new Cidade(1L, "Cornélio Procópio", new Estado(1L,"PR")),
+                new Cidade(2L, "São Paulo", new Estado(2L,"SP"))
                 
         ).collect(Collectors.toList());
         
